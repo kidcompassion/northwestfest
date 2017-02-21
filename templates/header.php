@@ -27,9 +27,15 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
-    </div>
-
+     <ul class="nav navbar-nav navbar-left">
+         <DIV style="margin-left:120px; margin-top:20px;">
+       <button class="btn-warning" style="border:none;"><p style="padding:3PX 20px;margin-bottom:0px;">BUY TICKETS</p></button>
+             <p style="padding:4px 0px; text-align:center; color:white; text-transfrom:uppercase !important;"><?php echo date("Y"); ?></p>
+         </DIV>
+    </ul>
+      </div>
     <nav class="<?php if (!is_front_page()):?>yellow <?php endif;?>primary collapse navbar-collapse" role="navigation">
+        
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);

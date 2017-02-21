@@ -29,7 +29,7 @@
       <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
      <ul class="nav navbar-nav navbar-left">
          <DIV style="margin-left:120px; margin-top:20px;">
-       <button class="btn-warning" style="border:none;"><p style="padding:3PX 20px;margin-bottom:0px;">BUY TICKETS</p></button>
+       <button class="btn-warning" style="border:none;"><p style="padding:3PX 20px;margin-bottom:0px; font-weight:bolder; letter-spacing:1px;">BUY TICKETS</p></button>
              <p style="padding:4px 0px; text-align:center; color:white; text-transfrom:uppercase !important;"><?php echo date("Y"); ?></p>
          </DIV>
     </ul>

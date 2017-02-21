@@ -68,7 +68,7 @@
                 </style>
               <?php endif;?>
 
-          <div class="hero" <?php if(has_post_thumbnail()):?>style="background-position-y: top; background-blend-mode:screen; background-color: #8d3894; background-position-x: center;background-attachment: fixed; background-size: cover; background-image: url('<?php echo esc_url($feat_image_url);?>');"<?php endif;?>>
+          <div class="hero" <?php if(has_post_thumbnail()):?>style="background-position-y: top; background-blend-mode:screen; background-color: #8d3894; background-position-x: center;background-attachment: fixed; background-size: cover; max-width: 100%;background-image: url('<?php echo esc_url($feat_image_url);?>');"<?php endif;?>>
               <div class="hero_copy">
                 <div>
                   <p class="line-one"><?php the_field('home_page_line_one');?></p>

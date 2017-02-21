@@ -1,32 +1,26 @@
 jQuery.noConflict();
 (function( $ ) {
 
-    $(document).ready(function(){
-    	var helloBarHeight = $('.hero').height() - 200;
-    	
-        if($(window).width() >= 1024){
-   
+	$(document).ready(function(){
+		var helloBarHeight = $('.hero').height() - 200;
+		$(window).bind('scroll', function(){
+			if ($(window).scrollTop() > helloBarHeight){
+				$('header').addClass('header_fixed');
+				$('.primary').addClass('primary_fixed');
+				$('.navbar-default .navbar-nav>li>a').css('color', '#edb408');
+				$('.primary').css('margin-top', '10px');
 
-        $(window).bind('scroll', function(){
-    		if ($(window).scrollTop() > helloBarHeight){
-    			$('header').addClass('header_fixed');
-    			$('.primary').addClass('primary_fixed');
-    			$('.navbar-default .navbar-nav>li>a').css('color', '#edb408');
-    			$('.primary').css('margin-top', '10px');
+			}else{ 
+				$('header').removeClass('header_fixed');
+				$('.primary').removeClass('primary_fixed');
+				$('.navbar-default .navbar-nav>li>a').css('color', '#8d3894');
 
-    		}else{ 
-    			$('header').removeClass('header_fixed');
-    			$('.primary').removeClass('primary_fixed');
-    			$('.navbar-default .navbar-nav>li>a').css('color', '#8d3894');
-    		}
-    		
-    	});
+			}
+			
+		});
+	
 
-        }
-
-
-
-    });
+	});
 
 
 	//open ticket window

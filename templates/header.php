@@ -3,6 +3,56 @@
   // somewhere in your theme.
 ?>
 
+<style>
+    
+    #callToAction{
+        position: relative;
+        top:20px;
+        left:110px;
+        border-radius: 0px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        font-size:18px;
+        padding: 3px 18px 3px 18px;
+        
+    }
+    
+       #actionBtn{
+        border-radius: 0px;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        font-size:18px;
+        padding: 3px 18px 3px 18px;
+        border: 1px solid #E6AF5F;
+        
+    }
+    
+        #actionText{
+            font-size: 14px;
+            font-weight: 100;
+            letter-spacing: 0px;
+            color: white;
+            text-align: center;
+            border: 1px solid white;
+        
+    }
+    
+   @media screen and (max-width: 993px) {
+       #callToAction{
+           position: absolute;
+           top:8px;
+           left:70px;
+       }
+       #actionBtn{
+           font-size: 14px;
+       }
+       #actionText{
+           display:none;
+       }
+    }
+    
+    
+</style>
 
 <?php if(is_front_page()):?>
 <section class="hello_bar">
@@ -26,16 +76,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
-     <ul class="nav navbar-nav navbar-left">
-         <DIV style="margin-left:120px; margin-top:20px;">
-       <button class="btn-warning" style="border:none;"><p style="padding:3PX 20px;margin-bottom:0px; font-weight:bolder; letter-spacing:1px;">BUY TICKETS</p></button>
-             <p style="padding:4px 0px; text-align:center; color:white; text-transfrom:uppercase !important;"><?php echo date("Y"); ?></p>
-         </DIV>
-    </ul>
-      </div>
-    <nav class="<?php if (!is_front_page()):?>yellow <?php endif;?>primary collapse navbar-collapse" role="navigation">
-        
+        <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
+            <ul class="nav navbar-nav " id="callToAction">
+                <button class="btn btn-warning" id="actionBtn">BUY TICKETS</button>
+                <p id="actionText">MAY 5TH - 14TH 2016</p>
+            </ul>
+    </div>
+
+      <nav class="<?php if (!is_front_page()):?>yellow <?php endif;?>primary collapse navbar-collapse" role="navigation">
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);

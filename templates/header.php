@@ -40,9 +40,12 @@
     
    @media screen and (max-width: 993px) {
        #callToAction{
-           position: absolute;
-           top:8px;
+           position: relative;
+           top:-41px;
            left:70px;
+       }
+       .buttonMove{
+           
        }
        #actionBtn{
            font-size: 14px;
@@ -78,7 +81,7 @@
         <span class="icon-bar"></span>
       </button>
         <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
-            <ul class="nav navbar-nav " id="callToAction">
+            <ul class="nav navbar-nav" id="callToAction">
                 <a href="http://northwestfest.ca/ticket-options"><button class="btn actionBtn" >BUY TICKETS</button></a>
                 <p id="actionText">MAY 5TH - 14TH 2016</p>
             </ul>

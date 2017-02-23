@@ -9,11 +9,23 @@ jQuery.noConflict();
 				$('.primary').addClass('primary_fixed');
 				$('.navbar-default .navbar-nav>li>a').css('color', '#edb408');
 				$('.primary').css('margin-top', '10px');
+                $('#actionText').css('display', 'none');
+                $('.actionBtn').css('margin-top','-15px').css('background-color','#8d3894').css('border','none');
+
+                
+
 
 			}else{ 
 				$('header').removeClass('header_fixed');
 				$('.primary').removeClass('primary_fixed');
 				$('.navbar-default .navbar-nav>li>a').css('color', '#8d3894');
+                $('#actionText').css('display', '');
+                $('.actionBtn').css('margin-top','').css('color','white').css('background-color','#FFB41F').css('boder','1px solid #FFB41F');
+
+
+
+
+                
 
 			}
 			

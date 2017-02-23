@@ -17,16 +17,16 @@
         
     }
     
-       #actionBtn{
+       .actionBtn{
         border-radius: 0px;
         font-weight: bolder;
         letter-spacing: 1px;
         font-size:18px;
         padding: 3px 18px 3px 18px;
-        border: 1px solid #E6AF5F;
+        background-color: #FFB41F;
+           color: white;
         
     }
-    
         #actionText{
             font-size: 14px;
             font-weight: 100;
@@ -36,6 +36,7 @@
             border: 1px solid white;
         
     }
+    
     
    @media screen and (max-width: 993px) {
        #callToAction{
@@ -78,7 +79,7 @@
       </button>
         <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
             <ul class="nav navbar-nav " id="callToAction">
-                <button class="btn btn-warning" id="actionBtn">BUY TICKETS</button>
+                <a href="http://northwestfest.ca/ticket-options"><button class="btn actionBtn" >BUY TICKETS</button></a>
                 <p id="actionText">MAY 5TH - 14TH 2016</p>
             </ul>
     </div>

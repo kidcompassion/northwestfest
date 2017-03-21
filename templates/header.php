@@ -83,7 +83,7 @@
         <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
             <ul class="nav navbar-nav" id="callToAction">
                 <a href="http://northwestfest.ca/ticket-options"><button class="btn actionBtn" >BUY TICKETS</button></a>
-                <p id="actionText">MAY 5TH - 14TH 2016</p>
+                <p id="actionText">MAY 5TH - 14TH 2017</p>
             </ul>
     </div>
 

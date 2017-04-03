@@ -163,6 +163,24 @@ function nwf_screening_date_taxonomy() {
 
 add_action( 'init', 'nwf_screening_date_taxonomy' );
 
+
+
+
+function nwf_screening_year_taxonomy() {
+   register_taxonomy(
+    'screening_year', 'screening_details',
+      array(
+          'hierarchical' => true,
+          'label' => 'Festival Year',
+          'query_var' => true,
+          'rewrite' => array('slug' => 'screening-dates')
+      )
+  );
+}
+
+add_action( 'init', 'nwf_screening_year_taxonomy' );
+
+
 /*sponsor details*/
 
 
@@ -327,15 +345,6 @@ function nwf_product_register() {
 
   register_post_type( 'product' , $args );
 }
-
-
-//Myrons Taxonomy
-add_action( 'init', 'nwf_archive_taxonomy' );
-
-function nwf_archive_taxonomy() {
-  print_r("MYRON IS A GENIUS");
-}
-
 
 
 

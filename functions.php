@@ -37,7 +37,7 @@ function nwf_styles(){
   wp_enqueue_style('novecento', get_template_directory_uri() . '/assets/fonts/stylesheet.css');
   wp_enqueue_style('roboto-condensed', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,400italic');
   wp_enqueue_script('custom_nwf', get_template_directory_uri() . '/assets/scripts/nwf.js', array(), '1.0.0', true);
-}; 
+};
 
 
 
@@ -163,9 +163,27 @@ function nwf_screening_date_taxonomy() {
 
 add_action( 'init', 'nwf_screening_date_taxonomy' );
 
-/*sponsor details*/ 
 
- 
+
+
+function nwf_screening_year_taxonomy() {
+   register_taxonomy(
+    'screening_year', 'screening_details',
+      array(
+          'hierarchical' => true,
+          'label' => 'Festival Year',
+          'query_var' => true,
+          'rewrite' => array('slug' => 'screening-dates')
+      )
+  );
+}
+
+add_action( 'init', 'nwf_screening_year_taxonomy' );
+
+
+/*sponsor details*/
+
+
 
 
 function nwf_workshops_taxonomy() {
@@ -183,12 +201,12 @@ function nwf_workshops_taxonomy() {
 add_action( 'init', 'nwf_workshops_taxonomy' );
 
 
-/*sponsor details*/ 
+/*sponsor details*/
 
 add_action('init', 'nwf_workshops_register');
- 
+
 function nwf_workshops_register() {
- 
+
   $labels = array(
     'name' => _x('Workshops and Panels', 'Workshops and Panels'),
     'singular_name' => _x('Workshops and Panels', 'Workshops and Panels'),
@@ -202,7 +220,7 @@ function nwf_workshops_register() {
     'not_found_in_trash' => __('Nothing found in Trash'),
     'parent_item_colon' => ''
   );
- 
+
   $args = array(
     'labels' => $labels,
     'public' => true,
@@ -216,8 +234,8 @@ function nwf_workshops_register() {
     'hierarchical' => false,
     'menu_position' => null,
     'supports' => array('title', 'editor', 'thumbnail', 'revisions')
-    ); 
- 
+    );
+
   register_post_type( 'workshops' , $args );
 }
 
@@ -236,12 +254,12 @@ function nwf_media_release_taxonomy() {
 add_action( 'init', 'nwf_media_release_taxonomy' );
 
 
-/*sponsor details*/ 
+/*sponsor details*/
 
 add_action('init', 'nwf_media_release_register');
- 
+
 function nwf_media_release_register() {
- 
+
   $labels = array(
     'name' => _x('Media Releases', 'Media Releases'),
     'singular_name' => _x('Media Release', 'Media Release'),
@@ -255,7 +273,7 @@ function nwf_media_release_register() {
     'not_found_in_trash' => __('Nothing found in Trash'),
     'parent_item_colon' => ''
   );
- 
+
   $args = array(
     'labels' => $labels,
     'public' => true,
@@ -269,8 +287,8 @@ function nwf_media_release_register() {
     'hierarchical' => false,
     'menu_position' => null,
     'supports' => array('title', 'editor', 'thumbnail', 'revisions')
-    ); 
- 
+    );
+
   register_post_type( 'mediarelease' , $args );
 }
 
@@ -290,12 +308,12 @@ function nwf_product_taxonomy() {
 add_action( 'init', 'nwf_product_taxonomy' );
 
 
-/*sponsor details*/ 
+/*sponsor details*/
 
 add_action('init', 'nwf_product_register');
- 
+
 function nwf_product_register() {
- 
+
   $labels = array(
     'name' => _x('Products', 'Products'),
     'singular_name' => _x('Product', 'Products'),
@@ -309,7 +327,7 @@ function nwf_product_register() {
     'not_found_in_trash' => __('Nothing found in Trash'),
     'parent_item_colon' => ''
   );
- 
+
   $args = array(
     'labels' => $labels,
     'public' => true,
@@ -323,30 +341,34 @@ function nwf_product_register() {
     'hierarchical' => false,
     'menu_position' => null,
     'supports' => array('title', 'editor', 'thumbnail', 'revisions')
-    ); 
- 
+    );
+
   register_post_type( 'product' , $args );
 }
 
 
 
+add_action( 'init', 'nwf_workshops_taxonomy' );
+
+
+
 function nwf_get_posts( $query ) {
   // do not modify queries in the admin
-  if( is_admin() ) {  
+  if( is_admin() ) {
     return $query;
-    
+
   }
-  
+
 
   // only modify queries for 'event' post type
   if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'screeningdetails' ) {
-    
-    $query->set('orderby', 'meta_value'); 
-    $query->set('meta_key', 'screening_time');   
-    $query->set('order', 'ASC'); 
-    
+
+    $query->set('orderby', 'meta_value');
+    $query->set('meta_key', 'screening_time');
+    $query->set('order', 'ASC');
+
   }
-  
+
 
   // return
   return $query;
@@ -354,6 +376,3 @@ function nwf_get_posts( $query ) {
 }
 
 add_action('pre_get_posts', 'nwf_get_posts');
-
-
-

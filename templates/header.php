@@ -4,8 +4,8 @@
 ?>
 
 <style>
-    
-    #callToAction{
+
+    .callToAction{
         position: relative;
         top:20px;
         left:110px;
@@ -14,9 +14,12 @@
         letter-spacing: 1px;
         font-size:18px;
         padding: 3px 18px 3px 18px;
-        
+
     }
-    
+    .callToActionMove{
+        margin-top: -10px;
+    }
+
        .actionBtn{
         border-radius: 0px;
         font-weight: bolder;
@@ -25,7 +28,7 @@
         padding: 3px 18px 3px 18px;
         background-color: #FFB41F;
            color: white;
-        
+
     }
         #actionText{
             font-size: 14px;
@@ -34,18 +37,15 @@
             color: white;
             text-align: center;
             border: 1px solid white;
-        
+
     }
-    
-    
+
+
    @media screen and (max-width: 993px) {
-       #callToAction{
+       .callToAction{
            position: relative;
            top:-41px;
            left:70px;
-       }
-       .buttonMove{
-           
        }
        #actionBtn{
            font-size: 14px;
@@ -54,8 +54,8 @@
            display:none;
        }
     }
-    
-    
+
+
 </style>
 
 <?php if(is_front_page()):?>
@@ -81,9 +81,9 @@
         <span class="icon-bar"></span>
       </button>
         <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
-            <ul class="nav navbar-nav" id="callToAction">
-                <a href="http://northwestfest.ca/ticket-options"><button class="btn actionBtn" >BUY TICKETS</button></a>
-                <p id="actionText">MAY 5TH - 14TH 2017</p>
+            <ul class="nav navbar-nav callToAction">
+                <a href="http://northwestfest.ca/ticket-options"><button class="btn actionBtn">BUY TICKETS</button></a>
+                <?php if(is_front_page()):?><p id="actionText">MAY 5TH - 14TH 2017</p><?php endif;?>
             </ul>
     </div>
 
@@ -94,7 +94,7 @@
       endif;
       ?>
     </nav>
-    
+
 </header>
 
 
@@ -102,12 +102,12 @@
 
 
       <!--hero image-->
-      <?php 
+      <?php
 
       $args = array(
           'post_type'=>'post',
           'posts_per_page'=>'1',
-          'post__in' => get_option('sticky_posts') 
+          'post__in' => get_option('sticky_posts')
       );
       // the query
       $the_query = new WP_Query( $args ); ?>

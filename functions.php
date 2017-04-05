@@ -47,12 +47,23 @@ add_action('wp_enqueue_scripts', 'nwf_styles');
 
 
 
+function add_custom_sizes(){
 /* === THUMBNAIL SIZING ===*/
-add_image_size( 'wee_image', 60, 100 );
-add_image_size( 'mobile_image', 320, 100 );
-add_image_size( 'tablet_image', 720, 400 );
-add_image_size( 'laptop_image', 1024, 600 );
-add_image_size( 'large_image', 1200, 750 );
+
+  if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 150, 150, true ); // default Post Thumbnail dimensions (cropped)
+
+    add_image_size( 'wee_image', 60, 100 );
+    add_image_size( 'mobile_image', 320, 100 );
+    add_image_size( 'tablet_image', 720, 400 );
+    add_image_size( 'laptop_image', 1024, 600 );
+    add_image_size( 'large_image', 1200, 750 );
+  }
+}
+
+add_action('after_setup_theme','add_custom_sizes');
+
 
 
 
@@ -376,3 +387,11 @@ function nwf_get_posts( $query ) {
 }
 
 add_action('pre_get_posts', 'nwf_get_posts');
+
+
+
+
+function wpdocs_excerpt_more( $more ) {
+    return '<a class="excerpt-link" href="'.get_the_permalink().'" rel="nofollow">Read More...</a>';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );

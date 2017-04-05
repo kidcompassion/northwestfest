@@ -44,8 +44,9 @@
    @media screen and (max-width: 993px) {
        .callToAction{
            position: relative;
-           top:-41px;
+          
            left:70px;
+           width: auto;
        }
        #actionBtn{
            font-size: 14px;

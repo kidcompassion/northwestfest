@@ -7,7 +7,7 @@ Template Name: Template for NWF sked
 	<div class="row">
 			<article class="white_bg grid">
 				<div class="col-md-12">
-					<h1>FILM SCHEDULE 2016</h1>
+					<h1>FILM SCHEDULE 2017</h1>
 					<p><a href="/ticket-options/">Get tickets and passes ></a></p>
 					</div>
 				<?php
@@ -18,7 +18,14 @@ Template Name: Template for NWF sked
 					'meta_key'=>'screening_date',
 					//Immediately order by Unix timestamp, to avoid hassles post-conversion to standard format
 					'orderby'=> 'meta_value_num',
-					'order'=>'ASC'
+					'order'=>'ASC',
+					'tax_query' => array(
+				        array (
+				            'taxonomy' => 'screening_year',
+				            'field' => 'slug',
+				            'terms' => '2017',
+				        )
+				    ),
 					);
 				// Name my snazzy new query
 				$screener_query = new WP_Query($args);

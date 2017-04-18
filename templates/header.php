@@ -82,10 +82,10 @@
         <span class="icon-bar"></span>
       </button>
         <a class="navbar-brand" href="/"><img class="logo" src="<?php echo get_template_directory_uri();?>/assets/images/logo.svg"/></a>
-            <ul class="nav navbar-nav callToAction">
+            <!--<ul class="nav navbar-nav callToAction">
                 <a href="https://www.universe.com/explore/edmonton?query=northwestfest"><button class="btn actionBtn">BUY TICKETS</button></a>
                 <?php if(is_front_page()):?><p id="actionText">MAY 5TH - 14TH 2017</p><?php endif;?>
-            </ul>
+            </ul>-->
     </div>
 
       <nav class="<?php if (!is_front_page()):?>yellow <?php endif;?>primary collapse navbar-collapse" role="navigation">

@@ -51,8 +51,7 @@ $bg_img: url(../../assets/images/bg.jpg);
 }
 
 .dropdown-menu {
-	display: block!important;
-	opacity: 0;
+	display: none;
 }
 .open>.dropdown-menu{
 	opacity: 1;
